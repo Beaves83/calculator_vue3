@@ -1,36 +1,28 @@
 <script setup>
-import HelloWorld from "./components/HelloWorld.vue";
-import TheWelcome from "./components/TheWelcome.vue";
+import Description from "./components/Description.vue";
+import Calculator from "./components/Calculator.vue";
 </script>
 
 <template>
   <header>
-    <img
-      alt="Vue logo"
-      class="logo"
-      src="./assets/logo.svg"
-      width="125"
-      height="125"
-    />
-
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+      <Description msg="Simple calculator" />
     </div>
   </header>
 
   <main>
-    <TheWelcome />
+    <Calculator />
   </main>
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
+
+main {
+  background: linear-gradient(to bottom right, rgb(71, 131, 180), rgb(181, 208, 216)); 
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
+header {
+  line-height: 1.5;
 }
 
 @media (min-width: 1024px) {
@@ -38,10 +30,6 @@ header {
     display: flex;
     place-items: center;
     padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
   }
 
   header .wrapper {

@@ -8,12 +8,11 @@ defineProps({
 </script>
 
 <template>
-  <div class="greetings">
+  <div class="dresciption">
     <h1 class="green">{{ msg }}</h1>
     <h3>
-      You’ve successfully created a project with
-      <a target="_blank" href="https://vitejs.dev/">Vite</a> +
-      <a target="_blank" href="https://vuejs.org/">Vue 3</a>.
+      A simple calculator where you can perform basic operations
+      <a target="_blank" href="https://github.com/Beaves83/calculator_vue3">GitHub</a>.
     </h3>
   </div>
 </template>
@@ -29,14 +28,14 @@ h3 {
   font-size: 1.2rem;
 }
 
-.greetings h1,
-.greetings h3 {
+.dresciption h1,
+.dresciption h3 {
   text-align: center;
 }
 
 @media (min-width: 1024px) {
-  .greetings h1,
-  .greetings h3 {
+  .dresciption h1,
+  .dresciption h3 {
     text-align: left;
   }
 }
