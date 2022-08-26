@@ -1,24 +1,35 @@
 <script setup>
 
 import { ref } from 'vue'
+const emit = defineEmits(['clearResult', 'calcResult', 'collectValue'])
 
 const list = ref(["Clear", "/", "7", "8", "9", "*", "4", "5", "6", "-", "1", "2", "3", "+", "0", " ", ".", "="])
 
+function executeFunction(item) {
+    if(item == "=") {
+        emit('calcResult');
+    } else if(item == ".") {
+        alert("This function is not ability in this version")
+    } else if(item == "Clear") {
+        emit('clearResult');
+    } else {
+        emit('collectValue',item);
+    }
+}
 
-// const props = defineProps({
-//         text: { type: String, default: "0" },
-//         result: { type: String, default: "0" },
-//         error: { type: String, default: "" }
-//     })
+function hasNumber(text) {
+    return /\d/.test(text);
+}   
+
 
 </script>
 
 <template>
-  <div class="board">
-            <div class="button" v-for="(item,index) in list" >
-                {{item}}
-            </div>
+    <div class="board">
+        <div @click="executeFunction(item)" class="button" v-for="(item,index) in list" :key="item" >
+            {{item}}
         </div>
+    </div>
 </template>
 
 <style scoped>
