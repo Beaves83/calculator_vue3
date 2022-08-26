@@ -12,7 +12,6 @@ const firstOperator = ref(null);
 const operator = ref(null);
 const secondOperator = ref(null);
 
-
 function resultToZero() {
     result.value = "0";
     operation.value = "0";
@@ -23,28 +22,33 @@ function resultToZero() {
 }
 
 function updateOperation(item) {
-    error.value = '';
+
+
+    if(result.value !== "0") {
+        resultToZero()
+    }
+    
+    error.value = ''; 
     if(!hasNumber(item)){
-        operator.value = item;
-        
-    } else if(!firstOperator.value)
-    {
-        firstOperator.value = item;
-    } else if(!secondOperator.value)
-    {
-        if(operator.value) {
-            secondOperator.value = item;
-        } else {
-            error.value = 'Enter an operator';
+        if(firstOperator.value) {
+            operator.value = item;
         }   
+    } else if(!operator.value)
+    {
+        firstOperator.value = !firstOperator.value ? item : (firstOperator.value += item);
+    } else {
+            secondOperator.value = !secondOperator.value ? item : (secondOperator.value += item);
     } 
     updateTextOperation();
 }
 
 function updateTextOperation() {
-    operation.value = `${firstOperator.value ? firstOperator.value : ""} 
-                        ${operator.value ? operator.value : ""} 
-                        ${secondOperator.value ? secondOperator.value : ""}`;
+    if(!firstOperator.value){
+        return;
+    }
+    operation.value = `${firstOperator.value ?? ""} 
+                        ${operator.value ?? ""} 
+                        ${secondOperator.value ?? ""}`;
 }
 
 function hasNumber(text) {
@@ -56,38 +60,26 @@ function calcResult() {
         error.value = "For the calculation enter all elements";
     }
     switch(operator.value) {
-    case "/":
-        if(secondOperator.value === "0"){
-            error.value = "It is not possible to divide by 0";
+        case "/":
+            if(secondOperator.value === "0"){
+                error.value = "It is not possible to divide by 0";
+                break;
+            }
+            result.value = (firstOperator.value / secondOperator.value).toFixed(2);
             break;
-        }
-        result.value = firstOperator.value / secondOperator.value;
-        break;
-    case "*":
-        result.value = firstOperator.value * secondOperator.value;
-        break;
-    case "-":
-        result.value = firstOperator.value - secondOperator.value;
-        break;
-    case "+":
-        result.value = parseInt(firstOperator.value) + parseInt(secondOperator.value);
-        break;
-    default:
-       error.value = "The calculation is not valid";
-
+        case "*":
+            result.value = firstOperator.value * secondOperator.value;
+            break;
+        case "-":
+            result.value = firstOperator.value - secondOperator.value;
+            break;
+        case "+":
+            result.value = parseInt(firstOperator.value) + parseInt(secondOperator.value);
+            break;
+        default:
+        error.value = "The calculation is not valid";
+    }
 }
-
-    // result.value = firstOperator.value + operator.value + secondOperator.value;
-}
-
-// function updateResult() {
-//     if(!firstOperator.value || !operator.value || !secondOperator.value){
-//         error.value = "For the calculation enter all elements";
-//     }
-//     result.value = firstOperator.value + operator.value + secondOperator.value;
-// }
-
-
 
 </script>
 

@@ -33,6 +33,9 @@ const props = defineProps({
 
 .screen__content {
     font-size: 2.4rem;
+    width: 280px;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .screen__error{
