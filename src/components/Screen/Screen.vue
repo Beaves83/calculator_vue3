@@ -10,7 +10,7 @@ const props = defineProps({
 
 <template>
     <div class="screen">
-        <div v-if="error" class="screen__error">{{error}} </div>
+        <div v-if="error" class="screen__error" data-test="screen__error">{{error}} </div>
         <div class="screen__top">{{text}}</div>
         <div class="screen__content">{{result}}</div>  
     </div>

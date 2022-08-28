@@ -15,12 +15,7 @@ function executeFunction(item) {
     } else {
         emit('collectValue',item);
     }
-}
-
-function hasNumber(text) {
-    return /\d/.test(text);
-}   
-
+}  
 
 </script>
 

@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 
-import Screen from './Screen.vue'
+import Screen from './Screen/Screen.vue'
 import Board from './Board.vue'
 import TopBar from './TopBar.vue'
 
@@ -23,11 +23,10 @@ function resultToZero() {
 
 function updateOperation(item) {
 
-
     if(result.value !== "0") {
         resultToZero()
     }
-    
+
     error.value = ''; 
     if(!hasNumber(item)){
         if(firstOperator.value) {
