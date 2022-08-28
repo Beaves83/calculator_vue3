@@ -21,7 +21,7 @@ function executeFunction(item) {
 
 <template>
     <div class="board">
-        <div @click="executeFunction(item)" class="button" v-for="(item,index) in list" :key="item" >
+        <div @click="executeFunction(item)" class="button" v-for="(item,index) in list" :key="item" data-test="item">
             {{item}}
         </div>
     </div>

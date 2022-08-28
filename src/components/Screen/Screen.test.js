@@ -5,15 +5,16 @@ import { mount, shallowMount } from "@vue/test-utils";
 
 describe("Screen.vue", () => {
 
-  const wrapper = shallowMount(Screen, {
+  let wrapper = shallowMount(Screen, {
     props: {
       text: 'Message test',
-      result: 'Result test' },
+      result: 'Result test',
+      error: '' },
   });
 
   const screen_top = wrapper.find('.screen__top');
   const screen_content = wrapper.find('.screen__content');
-  const screen_error = wrapper.find('.screen__error');
+  let screen_error = wrapper.find('.screen__error');
 
   it("Renders properly", () => {
     expect(wrapper.exists()).toBeTruthy();
@@ -22,5 +23,14 @@ describe("Screen.vue", () => {
     expect(screen_error.exists()).toBeFalsy();
   });
 
-  //cuando reciba un error que lo muestre
+  it("Error is showed", () => {
+    wrapper = shallowMount(Screen, {
+      props: {
+        text: 'Message test',
+        result: 'Result test',
+        error: 'Error test' },
+    });
+    screen_error = wrapper.find('.screen__error');
+    expect(screen_error.text()).toContain("Error test");
+  });
 });

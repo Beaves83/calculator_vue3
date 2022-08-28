@@ -1,8 +1,3 @@
-<script setup>
-
-
-</script>
-
 <template>
     <div class="top_bar"></div>
 </template>

@@ -1,9 +1,9 @@
 <script setup>
 import { ref } from 'vue'
 
-import Screen from './Screen/Screen.vue'
-import Board from './Board.vue'
-import TopBar from './TopBar.vue'
+import Screen from '../Screen/Screen.vue'
+import Board from '../Board/Board.vue'
+import TopBar from '../TopBar/TopBar.vue'
 
 const operation = ref("0");
 const result = ref("0");

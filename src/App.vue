@@ -1,6 +1,6 @@
 <script setup>
-import Description from "./components/Description.vue";
-import Calculator from "./components/Calculator.vue";
+import Description from "./components/Description/Description.vue";
+import Calculator from "./components/Calculator/Calculator.vue";
 </script>
 
 <template>

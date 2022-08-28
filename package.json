@@ -6,7 +6,8 @@
     "build": "vite build",
     "preview": "vite preview --port 4173",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
-    "test": "vitest"
+    "test": "vitest",
+    "coverage": "vitest run --coverage"
   },
   "dependencies": {
     "@vue/test-utils": "^2.0.2",
@@ -15,6 +16,7 @@
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.1.4",
     "@vitejs/plugin-vue": "^3.0.1",
+    "@vitest/coverage-istanbul": "^0.22.1",
     "@vue/eslint-config-prettier": "^7.0.0",
     "eslint": "^8.21.0",
     "eslint-plugin-vue": "^9.3.0",
