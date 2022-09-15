@@ -16,9 +16,12 @@ import Calculator from "./components/Calculator/Calculator.vue";
 </template>
 
 <style scoped>
-
 main {
-  background: linear-gradient(to bottom right, rgb(71, 131, 180), rgb(181, 208, 216)); 
+  background: linear-gradient(
+    to bottom right,
+    rgb(71, 131, 180),
+    rgb(181, 208, 216)
+  );
 }
 
 header {
@@ -42,6 +45,5 @@ header {
     place-items: flex-start;
     flex-wrap: wrap;
   }
-
 }
 </style>

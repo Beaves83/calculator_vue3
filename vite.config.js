@@ -12,11 +12,10 @@ export default defineConfig({
     },
   },
   test: {
-    
     globals: true,
     environment: "happy-dom",
     coverage: {
-      provider: 'istanbul' // or 'c8'
+      provider: "istanbul", // or 'c8'
     },
   },
 });

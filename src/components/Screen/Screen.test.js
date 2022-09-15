@@ -1,20 +1,19 @@
-import { expect, describe, it } from 'vitest';
-import Screen from '@/components/Screen/Screen.vue';
+import { expect, describe, it } from "vitest";
+import Screen from "@/components/Screen/Screen.vue";
 import { mount } from "@vue/test-utils";
 
-
 describe("Screen.vue", () => {
-
   let wrapper = mount(Screen, {
     props: {
-      text: 'Message test',
-      result: 'Result test',
-      error: '' },
+      text: "Message test",
+      result: "Result test",
+      error: "",
+    },
   });
 
-  const screen_top = wrapper.find('.screen__top');
-  const screen_content = wrapper.find('.screen__content');
-  let screen_error = wrapper.find('.screen__error');
+  const screen_top = wrapper.find(".screen__top");
+  const screen_content = wrapper.find(".screen__content");
+  let screen_error = wrapper.find(".screen__error");
 
   it("renders properly", () => {
     expect(wrapper.exists()).toBeTruthy();
@@ -29,11 +28,12 @@ describe("Screen.vue", () => {
   it("shows an message error when there is an error", () => {
     wrapper = mount(Screen, {
       props: {
-        text: 'Message test',
-        result: 'Result test',
-        error: 'Error test' },
+        text: "Message test",
+        result: "Result test",
+        error: "Error test",
+      },
     });
-    screen_error = wrapper.get('.screen__error');
+    screen_error = wrapper.get(".screen__error");
     expect(screen_error.text()).toContain("Error test");
   });
 });
